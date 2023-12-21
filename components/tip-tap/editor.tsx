@@ -1,10 +1,7 @@
-"use client";
-
-import { DocumentType, SetContentSchema } from "@/lib/schemas/document";
-import { UserType } from "@/lib/session";
-import PalaborImage from "@/lib/tip-tap/plugins/palabor-image";
-import { SoundCloud } from "@/lib/tip-tap/plugins/soundcloud";
-import { debounce } from "@/lib/utils";
+import { Document, SetContent } from "../../lib/schemas/document";
+import PalaborImage from "../../lib/tip-tap/plugins/palabor-image";
+import { SoundCloud } from "../../lib/tip-tap/plugins/soundcloud";
+import { debounce } from "../../lib/utils";
 import { CharacterCount } from "@tiptap/extension-character-count";
 import Typography from "@tiptap/extension-typography";
 import { Youtube } from "@tiptap/extension-youtube";
@@ -13,12 +10,12 @@ import StarterKit from "@tiptap/starter-kit";
 import PalaborEditorContent from "./editor-content";
 
 type EditorContentProps = Pick<
-  DocumentType,
+  Document,
   "id" | "title" | "content" | "user_id"
-> & { currentUser: UserType };
+> & { currentUser: any }; // TODO FIXME, need sessions for logged in users
 
 const saveDocument = (operation: Function) => operation();
-const saveDocumentDebounced = debounce(saveDocument, 500);
+const saveDocumentDebounced = debounce(saveDocument as any, 500);
 
 const PalaborEditor = ({
   id,
@@ -69,7 +66,7 @@ const PalaborEditor = ({
       const content = editor.getHTML();
       const plain_text_content = editor.getText();
       const input = { id, content, plain_text_content };
-      const documentInput = SetContentSchema.safeParse(input);
+      const documentInput = SetContent.safeParse(input);
       if (!documentInput.success) {
         return;
       }

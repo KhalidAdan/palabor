@@ -1,7 +1,7 @@
 import { z } from "zod";
-import { SQLBaseSchema } from "./sql-base";
+import { SQLBase } from "./sql-base";
 
-const DocumentSchema = SQLBaseSchema.extend({
+const Document = SQLBase.extend({
   title: z.string(),
   slug: z.string(),
   canonical_url: z.string().optional(),
@@ -16,9 +16,7 @@ const DocumentSchema = SQLBaseSchema.extend({
   meta_description: z.string().optional(),
 });
 
-export type DocumentType = z.infer<typeof DocumentSchema>;
-
-export const CreateDocumentSchema = DocumentSchema.omit({
+export const CreateDocument = Document.omit({
   id: true,
   createdAt: true,
   updatedAt: true,
@@ -29,9 +27,7 @@ export const CreateDocumentSchema = DocumentSchema.omit({
   meta_description: true,
 });
 
-export type CreateDocumentType = z.infer<typeof CreateDocumentSchema>;
-
-export const SetDocumentMetadataSchema = DocumentSchema.pick({
+export const SetDocumentMetadata = Document.pick({
   id: true,
   slug: true,
   meta_title: true,
@@ -41,19 +37,19 @@ export const SetDocumentMetadataSchema = DocumentSchema.pick({
   publication_date: true,
 });
 
-export type SetDocumentMetadataType = z.infer<typeof SetDocumentMetadataSchema>;
-
-export const SetTitleSchema = DocumentSchema.pick({
+export const SetTitle = Document.pick({
   id: true,
   title: true,
 });
 
-export type SetTitleType = z.infer<typeof SetTitleSchema>;
-
-export const SetContentSchema = DocumentSchema.pick({
+export const SetContent = Document.pick({
   id: true,
   content: true,
   plain_text_content: true,
 });
 
-export type SetContentType = z.infer<typeof SetContentSchema>;
+export type Document = z.infer<typeof Document>;
+export type CreateDocument = z.infer<typeof CreateDocument>;
+export type SetDocumentMetadata = z.infer<typeof SetDocumentMetadata>;
+export type SetTitle = z.infer<typeof SetTitle>;
+export type SetContent = z.infer<typeof SetContent>;

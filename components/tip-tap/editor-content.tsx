@@ -1,13 +1,13 @@
 "use client";
 
 import { useReadTime } from "../../hooks/use-read-time";
-import { DocumentType } from "../../lib/schemas/document";
+import { Document } from "../../lib/schemas/document";
 import { cn } from "../../lib/utils";
 import { Editor, EditorContent, isNodeSelection } from "@tiptap/react";
 import { EditorBubbleMenu } from "./editor-bubble-menu";
 import { TitleTextArea } from "./editor-title-text-area";
 
-type EditorContentProps = Pick<DocumentType, "id" | "title"> & {
+type EditorContentProps = Pick<Document, "id" | "title"> & {
   editor: Editor;
 };
 

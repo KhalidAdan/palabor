@@ -1,5 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Link, Outlet } from "@remix-run/react";
+import { NavLink } from "@remix-run/react";
+import { H1 } from "../../../components/ui/typography";
 
 export const meta: MetaFunction = () => {
   return [
@@ -10,27 +11,31 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div>
-      <header>
+    <div className="container mx-auto">
+      <header className="flex justify-center">
         <nav>
-          <ul>
+          <ul className="flex gap-4 mb-4">
             <li>
-              <Link to="/">Marketing</Link>
+              <NavLink to="/" className="px-3 py-2 rounded-md bg-secondary">
+                Home
+              </NavLink>
             </li>
             <li>
-              <Link to="/login">Login</Link>
+              <NavLink to="/login">Login</NavLink>
             </li>
             <li>
-              <Link to="/register">Register</Link>
+              <NavLink to="/register">Register</NavLink>
             </li>
             <li>
-              <Link to="/publications">Publications</Link>
+              <NavLink to="/creative-works">Works</NavLink>
             </li>
           </ul>
         </nav>
       </header>
       <main>
-        <Outlet />
+        <main className="h-full grid flex-col place-content-center">
+          <H1>Palabor: A paradigm shift in creative publishing</H1>
+        </main>
       </main>
     </div>
   );

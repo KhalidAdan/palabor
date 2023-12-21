@@ -1,7 +1,7 @@
-import { SQLBaseSchema } from "@/lib/schemas/sql-base";
+import { SQLBase } from "./sql-base";
 import { z } from "zod";
 
-export const SubscriptionSchema = SQLBaseSchema.extend({
+export const Subscription = SQLBase.extend({
   email: z.string().email(),
   publicationId: z.coerce.string().optional(),
   isVerified: z.boolean().default(() => false),
@@ -9,13 +9,15 @@ export const SubscriptionSchema = SQLBaseSchema.extend({
   verificationExpires: z.date().optional(),
 });
 
-export const CreateSubscriptionSchema = SubscriptionSchema.pick({
+export const CreateSubscription = Subscription.pick({
   email: true,
   publicationId: true,
 });
 
-export const DeleteSubscriptionSchema = SubscriptionSchema.pick({
+export const DeleteSubscription = Subscription.pick({
   id: true,
 });
 
-export type SubscriptionType = z.infer<typeof SubscriptionSchema>;
+export type Subscription = z.infer<typeof Subscription>;
+export type CreateSubscription = z.infer<typeof CreateSubscription>;
+export type DeleteSubscription = z.infer<typeof DeleteSubscription>;

@@ -1,5 +1,5 @@
-import { Icons } from "@/components/ui/icons";
-import { cn } from "@/lib/utils";
+import { Icons } from "../ui/icons";
+import { cn } from "../../lib/utils";
 import { BubbleMenu, BubbleMenuProps, Editor } from "@tiptap/react";
 import { FC } from "react";
 import { Button } from "../ui/button";
