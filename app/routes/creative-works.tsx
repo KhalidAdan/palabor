@@ -1,5 +1,5 @@
-import { H1, Lead } from "../../components/ui/typography";
-import SelectCreativeWork from "../../components/creative-work/select-creative-work";
+import { H1, Lead } from "../components/ui/typography";
+import SelectCreativeWork from "../components/creative-work/select-creative-work";
 import { MetaFunction } from "@remix-run/node";
 
 export const meta: MetaFunction = () => {

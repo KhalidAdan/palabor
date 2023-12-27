@@ -2,7 +2,7 @@ import {
   CalculateReadingTimeProps,
   ReadingTimeResult,
   calculateReadingTime,
-} from "@/lib/read-time";
+} from "../lib/utils";
 import { useMemo } from "react";
 
 export const useReadTime = ({

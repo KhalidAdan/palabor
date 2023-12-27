@@ -16,13 +16,13 @@ import {
   useLoaderData,
 } from "@remix-run/react";
 import mystyles from "./globals.css";
-import { getTheme, setTheme, Theme } from "../lib/theme.server";
+import { getTheme, setTheme, Theme } from "./lib/theme.server";
 
 import { invariantResponse } from "@epic-web/invariant";
 import { z } from "zod";
 import { parse } from "@conform-to/zod";
 import { useForm } from "@conform-to/react";
-import { Icons } from "../components/ui/icons";
+import { Icons } from "./components/ui/icons";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: mystyles },

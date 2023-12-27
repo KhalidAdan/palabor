@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import { NavLink } from "@remix-run/react";
-import { H1 } from "../../../components/ui/typography";
+import { H1 } from "../../components/ui/typography";
 
 export const meta: MetaFunction = () => {
   return [

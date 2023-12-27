@@ -1,6 +1,6 @@
-import CreateCreativeWorkForm from "../../components/creative-work/create-creative-work-form";
-import { Card, CardContent } from "../../components/ui/card";
-import { H1, Lead } from "../../components/ui/typography";
+import CreateCreativeWorkForm from "../components/creative-work/create-creative-work-form";
+import { Card, CardContent } from "../components/ui/card";
+import { H1, Lead } from "../components/ui/typography";
 
 export default function CreateCreativeWork() {
   return (
